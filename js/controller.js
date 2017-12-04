@@ -1,5 +1,9 @@
 window.onload = function(){
 
+  var animationEnd = setTimeout(function(){
+    document.getElementById('animation').setAttribute('style', 'display: none;');
+  }, 4800);
+
   // background image distance to left
   var backgroundLeftDistance = 0;
   // count page number
@@ -193,6 +197,12 @@ window.onload = function(){
     if (page == 8) {
       backgroundLeftDistance -= 820;
       document.getElementById('leftText').innerHTML = '';
+      document.getElementById('finalTitle').setAttribute('style', 'display: block; z-index: 10; opacity: 0');
+      document.getElementById('finalParagraph').setAttribute('style', 'display: block; z-index: 10; opacity: 0');
+      var fade = setTimeout(function(){
+        document.getElementById('finalTitle').setAttribute('style', 'display: block; opacity: 1;');
+        document.getElementById('finalParagraph').setAttribute('style', 'display: block; opacity: 1;');
+      }, 700);
     }
   }
 
@@ -270,9 +280,13 @@ window.onload = function(){
       backgroundLeftDistance += 820;
       document.getElementById('leftText').innerHTML = '';
       document.getElementById('leftText').setAttribute('style', 'opacity: 0;');
+      document.getElementById('finalTitle').setAttribute('style', 'opacity: 0;');
+      document.getElementById('finalParagraph').setAttribute('style', 'opacity: 0;');
       var fade = setTimeout(function(){
         document.getElementById('leftText').innerHTML = '<span>TEMPORARY</span><br><span>SACRIFICE BRINGS</span><br><span>LASTING RESULTS</span>';
         document.getElementById('leftText').setAttribute('style', 'opacity: 1;');
+        document.getElementById('finalTitle').setAttribute('style', 'display: none; opacity: 0;');
+        document.getElementById('finalParagraph').setAttribute('style', 'display: none; opacity: 0;');
       }, 700);
     }
   }

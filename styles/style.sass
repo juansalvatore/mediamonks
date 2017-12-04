@@ -5,6 +5,11 @@ body, html
   overflow: hidden
   background-color: #141414
 
+*
+  boxsizing: border-box
+  
+a
+  color: white
 @font-face
   font-family: "klavika-bold"
   src: url('../assets/font/klavika-bold-webfont.woff') format('woff')
@@ -36,6 +41,50 @@ body, html
   text-align: left
   transition: all ease-in-out 300ms
 
+// final title
+#finalTitle
+  z-index: 100
+  opacity: 0
+  color: white
+  position: absolute
+  font:
+    family: "klavika-light"
+    size: 40px
+  letter-spacing: 2px
+  line-height: 10px
+  right: 20px
+  top: 10px
+  transition: all ease-in-out 300ms
+
+#finalParagraph
+  display: none
+  color: white
+  position: absolute
+  right: 20px
+  top: 50%
+  transform: translateY(-50%)
+  z-index: 80
+  font:
+    family: "klavika-light"
+    size: 10px
+  text-align: right
+  transition: all ease-in-out 300ms
+
+.socialNetworks
+  margin-top: 28px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  z-index: 80
+
+  a
+    display: flex
+    align-items: center
+    margin-left: 45px
+    text-decoration: none
+
+  img
+    margin-right: 10px
 
 span
   display: inline-block
@@ -68,7 +117,7 @@ span
   height: 100vh
   width: 100vw
   align-items: center
-  z-index: 5
+  z-index: 1
 
 .arrowsRow
   display: flex
@@ -134,7 +183,7 @@ span
   height: 100vh
   display: flex
   align-items: center
-  z-index: 2
+  z-index: 1
 
 .textRow
   width: 100%
@@ -162,3 +211,103 @@ span
 
   span
     float: right
+
+// animation
+
+.animationContainer
+  position: absolute
+  width: 100vw
+  height: 100vh
+  background-color: #000
+  opacity: 1
+  z-index: 10
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  animation: forwards
+  animation-name: containerFade
+  animation-duration: 5s
+
+  p
+    width: 300px
+    display: inline
+    color: white
+    font:
+      family: "klavika-light"
+      size: 0px
+    opacity: 0
+    letter-spacing: 2px
+    animation: forwards
+    animation-name: textAnimation
+    animation-duration: 5s
+    width: 0
+
+  @keyframes textAnimation
+    0%
+      opacity: 0
+    20%
+      opacity: 0
+    30%
+      opacity: 0
+    35%
+      font-size: 11px
+    40%
+      opacity: 1
+      font-size: 11px
+    100%
+      opacity: 1
+      font-size: 11px
+
+
+@keyframes containerFade
+  0%
+    background-color: #000
+    opacity: 1
+  80%
+    background-color: #000
+    opacity: 1
+  100%
+    background-color: #000
+    opacity: 0
+
+#monk
+  animation: forwards
+  animation-name: monk
+  animation-duration: 5s
+  opacity: 0
+  width: 0
+  transition: all ease-in-out 300ms
+
+@keyframes monk
+  0%
+    opacity: 0
+  20%
+    opacity: 1
+    width: 100px
+  40%
+    width: 100px
+    transform: translateY(-60px)
+  80%
+    transform: translateY(-20px)
+  100%
+    opacity: 1
+    width: 100px
+    transform: translateY(-60px)
+
+#textAppear
+  opacity: 0
+  animation: forwards
+  animation-name: textAppear
+  animation-duration: 5s
+  border-bottom: none
+
+@keyframes textAppear
+  70%
+    opacity: 0
+  50%
+    opacity: 0
+  70%
+    opacity: 1
+  100%
+    opacity: 1
