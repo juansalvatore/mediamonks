@@ -1,54 +1,15 @@
 window.onload = function(){
-  // right arrow functionality
-  var backgroundLeftDistance = 0;
-  var page = 0;
-  displayLeftArrow();
-  document.getElementById('rightArrow').onclick = function() {
-    if(page == 0) {
-      backgroundLeftDistance -= 855;
-      // first title gone when page 1
-      document.getElementById('title').setAttribute('style', 'opacity: 0;');
-      document.getElementById('leftText').innerHTML = '<span>TALENT IS GIVEN</span><br><span>TRUE SKILL IS</span><br><span>EARNED</span>';
-    }
-    if (page == 1) {
-      backgroundLeftDistance -= 570;
-      document.getElementById('leftText').innerHTML = '';
-      document.getElementById('leftText').innerHTML = '<span>BE FLEXIBLE TO</span><br><span>CHANGE AND</span><br><span>STURDY IN</span><br><span>CONVICTION</span>';
-    }
-    if (page == 2) {
-      backgroundLeftDistance -= 880;
-      document.getElementById('leftText').innerHTML = '';
-      document.getElementById('rightText').innerHTML = '<span>USE MANY SKILLS</span><br><span>YET WORK AS ONE</span>';
-    }
-    if (page == 3) {
-      backgroundLeftDistance -= 870;
-      document.getElementById('leftText').innerHTML = '';
-      document.getElementById('rightText').innerHTML = '<span>TO MASTER</span><br><span>ANYTHING FIND</span><br><span>INTEREST IN</span><br><span>EVERYTHING</span>';
-    }
-    if (page == 4) {
-      backgroundLeftDistance -= 880;
-      document.getElementById('rightText').innerHTML = '';
-      document.getElementById('rightText').innerHTML = '<span>INDIVIDUALS</span><br><span>FLUORISH</span><br><span>IF CULTURE</span><br><span>AND WISDOM</span><br><span>ARE SHARED</span>';
-    }
-    if (page == 5) {
-      backgroundLeftDistance -= 950;
-      document.getElementById('rightText').innerHTML = '';
-      document.getElementById('leftText').innerHTML = '<span>TRAIN FOR</span><br><span>PERFECTION BUT</span><br><span>AIM FOR MORE</span>';
-    }
-    if (page == 6) {
-      backgroundLeftDistance -= 1220;
-      document.getElementById('leftText').innerHTML = '';
-      document.getElementById('leftText').innerHTML = '<span>TAKE PRIDE IN YOUR</span><br><span>WORK BUT DO NOT</span><br><span>SEEK PRAISE</span>';
-    }
-    if(page == 7) {
-      document.getElementById('leftText').innerHTML = '';
-      document.getElementById('leftText').innerHTML = '<span>TEMPORARY</span><br><span>SACRIFICE BRINGS</span><br><span>LASTING RESULTS</span>';
-    }
-    if (page == 8) {
-      backgroundLeftDistance -= 820;
-      document.getElementById('leftText').innerHTML = '';
 
-    }
+  // background image distance to left
+  var backgroundLeftDistance = 0;
+  // count page number
+  var page = 0;
+  // check if left arrow should be visible
+  displayLeftArrow();
+
+  // right arrow functionality
+  document.getElementById('rightArrow').onclick = function() {
+    rightArrowTextDisplay();
     page ++;
     document.getElementById('backgroundImage').setAttribute('style', 'left: ' + backgroundLeftDistance + 'px;');
     displayLeftArrow();
@@ -58,55 +19,11 @@ window.onload = function(){
 
   // left arrow functionality
   document.getElementById('leftArrow').onclick = function() {
-    if(page == 1) {
-      backgroundLeftDistance += 855;
-      // first title appears when back to page one
-      document.getElementById('leftText').innerHTML = '';
-      document.getElementById('title').setAttribute('style', 'opacity: 1;');
-      document.getElementById('leftText').innerHTML = '';
-    }
-    if (page == 2) {
-      backgroundLeftDistance += 570;
-      document.getElementById('leftText').innerHTML = '';
-      document.getElementById('leftText').innerHTML = '<span>TALENT IS GIVEN</span><br><span>TRUE SKILL IS</span><br><span>EARNED</span>';
-    }
-    if (page == 3) {
-      backgroundLeftDistance += 880;
-      document.getElementById('rightText').innerHTML = '';
-      document.getElementById('leftText').innerHTML = '<span>BE FLEXIBLE TO</span><br><span>CHANGE AND</span><br><span>STURDY IN</span><br><span>CONVICTION</span>';
-    }
-    if (page == 4) {
-      backgroundLeftDistance += 870;
-      document.getElementById('rightText').innerHTML = '';
-      document.getElementById('rightText').innerHTML = '<span>USE MANY SKILLS</span><br><span>YET WORK AS ONE</span>';
-    }
-    if (page == 5) {
-      backgroundLeftDistance += 880;
-      document.getElementById('rightText').innerHTML = '';
-      document.getElementById('rightText').innerHTML = '<span>TO MASTER</span><br><span>ANYTHING FIND</span><br><span>INTEREST IN</span><br><span>EVERYTHING</span>';
-    }
-    if (page == 6) {
-      backgroundLeftDistance += 950;
-      document.getElementById('leftText').innerHTML = '';
-      document.getElementById('rightText').innerHTML = '<span>INDIVIDUALS</span><br><span>FLUORISH</span><br><span>IF CULTURE</span><br><span>AND WISDOM</span><br><span>ARE SHARED</span>';
-    }
-    if (page == 7) {
-      backgroundLeftDistance += 1220;
-      document.getElementById('rightText').innerHTML = '';
-      document.getElementById('leftText').innerHTML = '<span>TRAIN FOR</span><br><span>PERFECTION BUT</span><br><span>AIM FOR MORE</span>';
-    }
-    if (page == 8) {
-      document.getElementById('leftText').innerHTML = '';
-      document.getElementById('leftText').innerHTML = '<span>TAKE PRIDE IN YOUR</span><br><span>WORK BUT DO NOT</span><br><span>SEEK PRAISE</span>';
-    }
-    if (page == 9) {
-      backgroundLeftDistance += 820;
-      document.getElementById('leftText').innerHTML = '';
-      document.getElementById('leftText').innerHTML = '<span>TEMPORARY</span><br><span>SACRIFICE BRINGS</span><br><span>LASTING RESULTS</span>';
-    }
+    leftArrowTextDisplay();
     page --;
     document.getElementById('backgroundImage').setAttribute('style', 'left: ' + backgroundLeftDistance + 'px;');
     displayLeftArrow();
+    displayRightArrow()
     pagination(page);
   }
 
@@ -115,18 +32,20 @@ window.onload = function(){
   function displayLeftArrow() {
     if(page == 0) {
       document.getElementById('leftArrow').setAttribute('style', 'opacity: 0; cursor: default; pointer-events: none;');
-    } else{
+    } else {
       document.getElementById('leftArrow').setAttribute('style', 'opacity: 1; cursor: pointer; pointer-events: auto;');
     }
   }
+
   function displayRightArrow() {
     if(page == 9) {
       document.getElementById('rightArrow').setAttribute('style', 'opacity: 0; cursor: default; pointer-events: none;');
-    } else{
-      document.getElementById('leftArrow').setAttribute('style', 'opacity: 1; cursor: pointer; pointer-events: auto;');
+    } else {
+      document.getElementById('rightArrow').setAttribute('style', 'opacity: 1; cursor: pointer; pointer-events: auto;');
     }
   }
-  // change pagination index
+
+  // move white box in pagination
   function pagination(page) {
     var page0 = document.getElementById('0');
     var page1 = document.getElementById('1');
@@ -195,7 +114,174 @@ window.onload = function(){
       page1.className = "paginationActive";
       page0.removeAttribute("class");
     }
+  }
+
+  // RIGHT ARROW TEXT DISPLAY
+  function rightArrowTextDisplay(){
+    if(page == 0) {
+      backgroundLeftDistance -= 855;
+      // first title gone when page 1
+      document.getElementById('title').setAttribute('style', 'opacity: 0;');
+      document.getElementById('leftText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('leftText').innerHTML = '<span>TALENT IS GIVEN</span><br><span>TRUE SKILL IS</span><br><span>EARNED</span>';
+        document.getElementById('leftText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 1) {
+      backgroundLeftDistance -= 570;
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('leftText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('leftText').innerHTML = '<span>BE FLEXIBLE TO</span><br><span>CHANGE AND</span><br><span>STURDY IN</span><br><span>CONVICTION</span>';
+        document.getElementById('leftText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 2) {
+      backgroundLeftDistance -= 880;
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('rightText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('rightText').innerHTML = '<span>USE MANY SKILLS</span><br><span>YET WORK AS ONE</span>';
+        document.getElementById('rightText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 3) {
+      backgroundLeftDistance -= 870;
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('rightText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('rightText').innerHTML = '<span>TO MASTER</span><br><span>ANYTHING FIND</span><br><span>INTEREST IN</span><br><span>EVERYTHING</span>';
+        document.getElementById('rightText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 4) {
+      backgroundLeftDistance -= 880;
+      document.getElementById('rightText').innerHTML = '';
+      document.getElementById('rightText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('rightText').innerHTML = '<span>INDIVIDUALS</span><br><span>FLUORISH</span><br><span>IF CULTURE</span><br><span>AND WISDOM</span><br><span>ARE SHARED</span>';
+        document.getElementById('rightText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 5) {
+      backgroundLeftDistance -= 950;
+      document.getElementById('rightText').innerHTML = '';
+      document.getElementById('leftText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('leftText').innerHTML = '<span>TRAIN FOR</span><br><span>PERFECTION BUT</span><br><span>AIM FOR MORE</span>';
+        document.getElementById('leftText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 6) {
+      backgroundLeftDistance -= 1220;
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('leftText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('leftText').innerHTML = '<span>TAKE PRIDE IN YOUR</span><br><span>WORK BUT DO NOT</span><br><span>SEEK PRAISE</span>';
+      document.getElementById('leftText').setAttribute('style', 'opacity: 1;');
+    }, 700);
+    }
+    if(page == 7) {
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('leftText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('leftText').innerHTML = '<span>TEMPORARY</span><br><span>SACRIFICE BRINGS</span><br><span>LASTING RESULTS</span>';
+        document.getElementById('leftText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 8) {
+      backgroundLeftDistance -= 820;
+      document.getElementById('leftText').innerHTML = '';
+    }
+  }
+
+  // LEFT ARROW TEXT DISPLAY
+  function leftArrowTextDisplay() {
+    if(page == 1) {
+      backgroundLeftDistance += 855;
+      // first title appears when back to page one
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('title').setAttribute('style', 'opacity: 1;');
+    }
+    if (page == 2) {
+      backgroundLeftDistance += 570;
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('leftText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('leftText').innerHTML = '<span>TALENT IS GIVEN</span><br><span>TRUE SKILL IS</span><br><span>EARNED</span>';
+        document.getElementById('leftText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 3) {
+      backgroundLeftDistance += 880;
+      document.getElementById('rightText').innerHTML = '';
+      document.getElementById('leftText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('leftText').innerHTML = '<span>BE FLEXIBLE TO</span><br><span>CHANGE AND</span><br><span>STURDY IN</span><br><span>CONVICTION</span>';
+        document.getElementById('leftText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 4) {
+      backgroundLeftDistance += 870;
+      document.getElementById('rightText').innerHTML = '';
+      document.getElementById('rightText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('rightText').innerHTML = '<span>USE MANY SKILLS</span><br><span>YET WORK AS ONE</span>';
+        document.getElementById('rightText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 5) {
+      backgroundLeftDistance += 880;
+      document.getElementById('rightText').innerHTML = '';
+      document.getElementById('rightText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('rightText').innerHTML = '<span>TO MASTER</span><br><span>ANYTHING FIND</span><br><span>INTEREST IN</span><br><span>EVERYTHING</span>';
+        document.getElementById('rightText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 6) {
+      backgroundLeftDistance += 950;
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('rightText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('rightText').innerHTML = '<span>INDIVIDUALS</span><br><span>FLUORISH</span><br><span>IF CULTURE</span><br><span>AND WISDOM</span><br><span>ARE SHARED</span>';
+        document.getElementById('rightText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 7) {
+      backgroundLeftDistance += 1220;
+      document.getElementById('rightText').innerHTML = '';
+      document.getElementById('leftText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('leftText').innerHTML = '<span>TRAIN FOR</span><br><span>PERFECTION BUT</span><br><span>AIM FOR MORE</span>';
+        document.getElementById('leftText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 8) {
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('leftText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('leftText').innerHTML = '<span>TAKE PRIDE IN YOUR</span><br><span>WORK BUT DO NOT</span><br><span>SEEK PRAISE</span>';
+        document.getElementById('leftText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+    if (page == 9) {
+      backgroundLeftDistance += 820;
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('leftText').setAttribute('style', 'opacity: 0;');
+      var fade = setTimeout(function(){
+        document.getElementById('leftText').innerHTML = '<span>TEMPORARY</span><br><span>SACRIFICE BRINGS</span><br><span>LASTING RESULTS</span>';
+        document.getElementById('leftText').setAttribute('style', 'opacity: 1;');
+      }, 700);
+    }
+  }
 
 
+
+  function erasePreviousText() {
+    document.getElementById('title').setAttribute('style', 'opacity: 0;');
+    document.getElementById('leftText').innerHTML = '';
+    document.getElementById('rightText').innerHTML = '';
   }
 }
