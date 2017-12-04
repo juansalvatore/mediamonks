@@ -6,12 +6,18 @@ window.onload = function(){
   document.getElementById('rightArrow').onclick = function() {
     if(page == 0) {
       backgroundLeftDistance -= 855;
+      // first title gone when page 1
+      document.getElementById('title').setAttribute('style', 'opacity: 0;');
+      document.getElementById('leftText').innerHTML = '<span>TALENT IS GIVEN</span><br><span>TRUE SKILL IS</span><br><span>EARNED</span>';
     }
     if (page == 1) {
       backgroundLeftDistance -= 570;
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('leftText').innerHTML = '<span>BE FLEXIBLE TO</span><br><span>CHANGE AND</span><br><span>STURDY IN</span><br><span>CONVICTION</span>';
     }
     if (page == 2) {
       backgroundLeftDistance -= 880;
+      document.getElementById('leftText').innerHTML = '';
     }
     if (page == 3) {
       backgroundLeftDistance -= 870;
@@ -38,12 +44,17 @@ window.onload = function(){
   document.getElementById('leftArrow').onclick = function() {
     if(page == 1) {
       backgroundLeftDistance += 855;
+      // first title appears when back to page one
+      document.getElementById('title').setAttribute('style', 'opacity: 1;');
+      document.getElementById('leftText').innerHTML = '';
     }
     if (page == 2) {
       backgroundLeftDistance += 570;
+      document.getElementById('leftText').innerHTML = '<span>TALENT IS GIVEN</span><br><span>TRUE SKILL IS</span><br><span>EARNED</span>';
     }
     if (page == 3) {
       backgroundLeftDistance += 880;
+      document.getElementById('leftText').innerHTML = '<span>BE FLEXIBLE TO</span><br><span>CHANGE AND</span><br><span>STURDY IN</span><br><span>CONVICTION</span>';
     }
     if (page == 4) {
       backgroundLeftDistance += 870;
