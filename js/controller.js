@@ -4,18 +4,64 @@ window.onload = function(){
   var page = 0;
   displayLeftArrow();
   document.getElementById('rightArrow').onclick = function() {
-    backgroundLeftDistance -= 100;
+    if(page == 0) {
+      backgroundLeftDistance -= 855;
+    }
+    if (page == 1) {
+      backgroundLeftDistance -= 570;
+    }
+    if (page == 2) {
+      backgroundLeftDistance -= 880;
+    }
+    if (page == 3) {
+      backgroundLeftDistance -= 870;
+    }
+    if (page == 4) {
+      backgroundLeftDistance -= 880;
+    }
+    if (page == 5) {
+      backgroundLeftDistance -= 950;
+    }
+    if (page == 6) {
+      backgroundLeftDistance -= 1220;
+    }
+    if (page == 8) {
+      backgroundLeftDistance -= 820;
+    }
     page ++;
-    document.getElementById('backgroundImage').setAttribute('style', 'left: ' + backgroundLeftDistance + 'vw;');
+    document.getElementById('backgroundImage').setAttribute('style', 'left: ' + backgroundLeftDistance + 'px;');
     displayLeftArrow();
     pagination(page);
   }
 
   // left arrow functionality
   document.getElementById('leftArrow').onclick = function() {
-    backgroundLeftDistance += 100;
+    if(page == 1) {
+      backgroundLeftDistance += 855;
+    }
+    if (page == 2) {
+      backgroundLeftDistance += 570;
+    }
+    if (page == 3) {
+      backgroundLeftDistance += 880;
+    }
+    if (page == 4) {
+      backgroundLeftDistance += 870;
+    }
+    if (page == 5) {
+      backgroundLeftDistance += 880;
+    }
+    if (page == 6) {
+      backgroundLeftDistance += 950;
+    }
+    if (page == 7) {
+      backgroundLeftDistance += 1220;
+    }
+    if (page == 9) {
+      backgroundLeftDistance += 820;
+    }
     page --;
-    document.getElementById('backgroundImage').setAttribute('style', 'left: ' + backgroundLeftDistance + 'vw;');
+    document.getElementById('backgroundImage').setAttribute('style', 'left: ' + backgroundLeftDistance + 'px;');
     displayLeftArrow();
     pagination(page);
   }
