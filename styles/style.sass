@@ -15,6 +15,13 @@ body, html
     left: -100vw
 
 // Arrows section
+#rightArrow, #leftArrow
+  width: 35px
+  height: 35px
+
+  &:hover
+    cursor: pointer
+
 .arrowsContainer
   position: absolute
   display: flex
@@ -27,3 +34,5 @@ body, html
   justify-content: space-between
   width: 100%
   z-index: 2
+  transform: translateY(-30px)
+  padding: 0px 15px
