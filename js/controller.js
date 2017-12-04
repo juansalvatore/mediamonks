@@ -18,25 +18,41 @@ window.onload = function(){
     if (page == 2) {
       backgroundLeftDistance -= 880;
       document.getElementById('leftText').innerHTML = '';
+      document.getElementById('rightText').innerHTML = '<span>USE MANY SKILLS</span><br><span>YET WORK AS ONE</span>';
     }
     if (page == 3) {
       backgroundLeftDistance -= 870;
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('rightText').innerHTML = '<span>TO MASTER</span><br><span>ANYTHING FIND</span><br><span>INTEREST IN</span><br><span>EVERYTHING</span>';
     }
     if (page == 4) {
       backgroundLeftDistance -= 880;
+      document.getElementById('rightText').innerHTML = '';
+      document.getElementById('rightText').innerHTML = '<span>INDIVIDUALS</span><br><span>FLUORISH</span><br><span>IF CULTURE</span><br><span>AND WISDOM</span><br><span>ARE SHARED</span>';
     }
     if (page == 5) {
       backgroundLeftDistance -= 950;
+      document.getElementById('rightText').innerHTML = '';
+      document.getElementById('leftText').innerHTML = '<span>TRAIN FOR</span><br><span>PERFECTION BUT</span><br><span>AIM FOR MORE</span>';
     }
     if (page == 6) {
       backgroundLeftDistance -= 1220;
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('leftText').innerHTML = '<span>TAKE PRIDE IN YOUR</span><br><span>WORK BUT DO NOT</span><br><span>SEEK PRAISE</span>';
+    }
+    if(page == 7) {
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('leftText').innerHTML = '<span>TEMPORARY</span><br><span>SACRIFICE BRINGS</span><br><span>LASTING RESULTS</span>';
     }
     if (page == 8) {
       backgroundLeftDistance -= 820;
+      document.getElementById('leftText').innerHTML = '';
+
     }
     page ++;
     document.getElementById('backgroundImage').setAttribute('style', 'left: ' + backgroundLeftDistance + 'px;');
     displayLeftArrow();
+    displayRightArrow();
     pagination(page);
   }
 
@@ -45,31 +61,48 @@ window.onload = function(){
     if(page == 1) {
       backgroundLeftDistance += 855;
       // first title appears when back to page one
+      document.getElementById('leftText').innerHTML = '';
       document.getElementById('title').setAttribute('style', 'opacity: 1;');
       document.getElementById('leftText').innerHTML = '';
     }
     if (page == 2) {
       backgroundLeftDistance += 570;
+      document.getElementById('leftText').innerHTML = '';
       document.getElementById('leftText').innerHTML = '<span>TALENT IS GIVEN</span><br><span>TRUE SKILL IS</span><br><span>EARNED</span>';
     }
     if (page == 3) {
       backgroundLeftDistance += 880;
+      document.getElementById('rightText').innerHTML = '';
       document.getElementById('leftText').innerHTML = '<span>BE FLEXIBLE TO</span><br><span>CHANGE AND</span><br><span>STURDY IN</span><br><span>CONVICTION</span>';
     }
     if (page == 4) {
       backgroundLeftDistance += 870;
+      document.getElementById('rightText').innerHTML = '';
+      document.getElementById('rightText').innerHTML = '<span>USE MANY SKILLS</span><br><span>YET WORK AS ONE</span>';
     }
     if (page == 5) {
       backgroundLeftDistance += 880;
+      document.getElementById('rightText').innerHTML = '';
+      document.getElementById('rightText').innerHTML = '<span>TO MASTER</span><br><span>ANYTHING FIND</span><br><span>INTEREST IN</span><br><span>EVERYTHING</span>';
     }
     if (page == 6) {
       backgroundLeftDistance += 950;
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('rightText').innerHTML = '<span>INDIVIDUALS</span><br><span>FLUORISH</span><br><span>IF CULTURE</span><br><span>AND WISDOM</span><br><span>ARE SHARED</span>';
     }
     if (page == 7) {
       backgroundLeftDistance += 1220;
+      document.getElementById('rightText').innerHTML = '';
+      document.getElementById('leftText').innerHTML = '<span>TRAIN FOR</span><br><span>PERFECTION BUT</span><br><span>AIM FOR MORE</span>';
+    }
+    if (page == 8) {
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('leftText').innerHTML = '<span>TAKE PRIDE IN YOUR</span><br><span>WORK BUT DO NOT</span><br><span>SEEK PRAISE</span>';
     }
     if (page == 9) {
       backgroundLeftDistance += 820;
+      document.getElementById('leftText').innerHTML = '';
+      document.getElementById('leftText').innerHTML = '<span>TEMPORARY</span><br><span>SACRIFICE BRINGS</span><br><span>LASTING RESULTS</span>';
     }
     page --;
     document.getElementById('backgroundImage').setAttribute('style', 'left: ' + backgroundLeftDistance + 'px;');
@@ -82,6 +115,13 @@ window.onload = function(){
   function displayLeftArrow() {
     if(page == 0) {
       document.getElementById('leftArrow').setAttribute('style', 'opacity: 0; cursor: default; pointer-events: none;');
+    } else{
+      document.getElementById('leftArrow').setAttribute('style', 'opacity: 1; cursor: pointer; pointer-events: auto;');
+    }
+  }
+  function displayRightArrow() {
+    if(page == 9) {
+      document.getElementById('rightArrow').setAttribute('style', 'opacity: 0; cursor: default; pointer-events: none;');
     } else{
       document.getElementById('leftArrow').setAttribute('style', 'opacity: 1; cursor: pointer; pointer-events: auto;');
     }
