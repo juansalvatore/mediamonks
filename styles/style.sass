@@ -4,6 +4,14 @@ body, html
   margin: 0
   overflow: hidden
 
+@font-face
+  font-family: "klavika-bold"
+  src: url('../assets/font/klavika-bold-webfont.woff') format('woff')
+
+@font-face
+  font-family: "klavika-light"
+  src: url('../assets/font/klavika-light-webfont.woff') format('woff')
+
 // background
 #backgroundImage
   position: absolute
@@ -41,3 +49,33 @@ body, html
   bottom: 0
   right: 18px
   z-index: 2
+
+// pagination section
+.paginationExterior
+  position: absolute
+  width: 240px
+  height: 20px
+  bottom: 20px
+  left: 18px
+  border-style: dotted
+  color: white
+  display: flex
+  border-width: 2px
+  border-radius: 3px
+
+
+.borderRight
+  font:
+    family: "klavika-light"
+    size: 13px
+  width: 100%
+  border-right: dotted
+  border-color: white
+  display: flex
+  justify-content: center
+  align-items: center
+  color: white
+  border-width: 2px
+
+.last
+  border-right: none
